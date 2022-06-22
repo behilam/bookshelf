@@ -2,6 +2,6 @@
 import { render } from 'solid-js/web';
 
 import './index.css';
-import App from './App';
+import Bookshelf from './App';
 
-render(() => <App />, document.getElementById('root') as HTMLElement);
+render(() => <Bookshelf name="Sejden"/>, document.getElementById('root') as HTMLElement);
