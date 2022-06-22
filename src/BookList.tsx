@@ -6,7 +6,7 @@ interface IBookListProps {
 }
 
 export function BookList(props: IBookListProps) {
-  const totalBooks = () => props.books().length;
+  const totalBooks = () => props.books.length;
 
   return (
     <>
