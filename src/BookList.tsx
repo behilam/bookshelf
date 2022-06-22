@@ -1,29 +1,31 @@
-import { createSignal } from "solid-js";
+import { createSignal, For } from "solid-js";
 
 type Book = {
-    title: string;
-    author: string;
+  title: string;
+  author: string;
 };
 
 const initialBooks: Book[] = [
-    { title: "Code Complete", author: "Steve McConnell" },
-    { title: "The Hobbit", author: "J.R.R. Tolkien" },
-    { title: "Living a Feminist Life", author: "Sarah Ahmed" },
+  { title: "Code Complete", author: "Steve McConnell" },
+  { title: "The Hobbit", author: "J.R.R. Tolkien" },
+  { title: "Living a Feminist Life", author: "Sarah Ahmed" },
 ];
 
 export function BookList() {
-    const [books, setBooks] = createSignal(initialBooks);
-    
-    return (
-        <ul>
+  const [books, setBooks] = createSignal(initialBooks);
+
+  return (
+    <ul>
+      <For each={books()}>
+        {(book) => {
+          return (
             <li>
-                {books()[0].title}{" "}
-                <span style={{ "font-style": "italic" }}>({books()[0].author})</span>
+              {book.title}{" "}
+              <span style={{ "font-style": "italic" }}>({book.author})</span>
             </li>
-            <li>
-                {books()[1].title}{" "}
-                <span style={{ "font-style": "italic" }}>({books()[1].author})</span>
-            </li>
-        </ul>
-    );
+          );
+        }}
+      </For>
+    </ul>
+  );
 }
