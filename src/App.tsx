@@ -9,8 +9,8 @@ const Bookshelf = (props: IBookshelfProps) => {
   return (
     <div>
       <h1>{props.name}'s Bookshelf</h1>
-        <BookList />
-        <AddBook />
+      <BookList />
+      <AddBook />
     </div>
   );
 };
