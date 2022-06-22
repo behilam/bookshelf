@@ -13,19 +13,24 @@ const initialBooks: Book[] = [
 
 export function BookList() {
   const [books, setBooks] = createSignal(initialBooks);
+  
+  const totalBooks = () => books().length;
 
   return (
-    <ul>
-      <For each={books()}>
-        {(book) => {
-          return (
-            <li>
-              {book.title}{" "}
-              <span style={{ "font-style": "italic" }}>({book.author})</span>
-            </li>
-          );
-        }}
-      </For>
-    </ul>
+    <>
+      <h2>My books ({totalBooks()})</h2>
+      <ul>
+        <For each={books()}>
+          {(book) => {
+            return (
+              <li>
+                {book.title}{" "}
+                <span style={{ "font-style": "italic" }}>({book.author})</span>
+              </li>
+            );
+          }}
+        </For>
+      </ul>
+    </>
   );
 }
